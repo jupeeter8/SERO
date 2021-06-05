@@ -66,6 +66,8 @@ public class RegisterActivity extends AppCompatActivity {
                                             if (verify.isSuccessful()) {
                                                 Toast.makeText(context, "verification sent", Toast.LENGTH_LONG).show();
                                                 bar.setVisibility(View.INVISIBLE);
+                                                Intent verifyIntent = new Intent(context, Verification.class);
+                                                startActivity(verifyIntent);
                                                 finish();
                                             } else {
                                                 String error = task.getException().getMessage();

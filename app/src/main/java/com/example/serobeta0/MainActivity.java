@@ -41,13 +41,6 @@ public class MainActivity extends AppCompatActivity {
             sendToLogin();
 
         }
-
-        if (currentUser != null && currentUser.isEmailVerified() == false) {
-
-           Intent verifyIntent = new Intent(MainActivity.this, Verification.class);
-            startActivity(verifyIntent);
-
-        }
     }
 
 
