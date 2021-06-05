@@ -59,14 +59,33 @@ public class RegisterActivity extends AppCompatActivity {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
                                 if (task.isSuccessful()) {
-                                    sendToMain();
+                                    FirebaseUser currentUser = mAuth.getCurrentUser();
+                                    currentUser.sendEmailVerification().addOnCompleteListener(new OnCompleteListener() {
+                                        @Override
+                                        public void onComplete(@NonNull Task verify) {
+                                            if (verify.isSuccessful()) {
+                                                Toast.makeText(context, "verification sent", Toast.LENGTH_LONG).show();
+                                                bar.setVisibility(View.INVISIBLE);
+                                                finish();
+                                            } else {
+                                                String error = task.getException().getMessage();
+                                                Toast.makeText(context, error, Toast.LENGTH_LONG).show();
+
+                                            }
+                                        }
+                                    });
+
+                                } else {
+
+                                    String error = task.getException().getMessage();
+                                    Toast.makeText(context, error, Toast.LENGTH_LONG).show();
+                                    bar.setVisibility(View.INVISIBLE);
                                 }
                             }
                         });
 
                     } else {
                         Toast.makeText(context, "Passwords do not match!", Toast.LENGTH_SHORT).show();
-                        bar.setVisibility(View.INVISIBLE);
                     }
                 }
             }
