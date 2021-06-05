@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "923165502705",
+    "project_id": "sero-cf78f",
+    "storage_bucket": "sero-cf78f.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:923165502705:android:a9a5b555a36f6d9643cd50",
+        "android_client_info": {
+          "package_name": "com.example.serobeta0"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "923165502705-ifcjnva6k4bdc6gso43bgrpejgmia22m.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDXsMZT8rgCpkYUhvMIrvLv1eEiNEb4IQY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "923165502705-ifcjnva6k4bdc6gso43bgrpejgmia22m.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

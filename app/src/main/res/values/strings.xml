@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">Serobeta0</string>
+    <string name="action_search">Search</string>
+    <string name="action_settings">Account Settings</string>
+    <string name="action_logout">Logout</string>
+    <string name="emailLayout">Email address</string>
+</resources>
