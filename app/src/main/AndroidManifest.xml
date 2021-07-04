@@ -3,8 +3,8 @@
     package="com.example.serobeta0">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Serobeta0">
-        <activity android:name=".Setup"></activity>
+        <activity android:name=".NewPost"></activity>
+        <activity android:name=".Setup" />
         <activity android:name=".Verification" />
         <activity
             android:name=".RegisterActivity"
@@ -31,11 +32,9 @@
             </intent-filter>
         </activity>
 
-
         <meta-data
             android:name="preloaded_fonts"
             android:resource="@array/preloaded_fonts" />
     </application>
-
 
 </manifest>
