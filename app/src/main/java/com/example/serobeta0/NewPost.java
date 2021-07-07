@@ -16,7 +16,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public class NewPost extends AppCompatActivity {
@@ -60,10 +64,13 @@ public class NewPost extends AppCompatActivity {
                 String description = desc.getText().toString();
                 if(!TextUtils.isEmpty(question) && !TextUtils.isEmpty(description))
                 {
+                    SimpleDateFormat sdf = new SimpleDateFormat("dd_MM_yyyy", Locale.getDefault());
+                    String currentDateandTime = sdf.format(new Date());
                     Map<String, Object> postMap = new HashMap<>();
                     postMap.put("name", user_id);
                     postMap.put("ques", question);
                     postMap.put("desc", description);
+                    postMap.put("Time", currentDateandTime);
 
                     firestore.collection("Post").add(postMap).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
                         @Override
