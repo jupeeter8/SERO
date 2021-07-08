@@ -3,6 +3,8 @@ package com.example.serobeta0;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
+import androidx.fragment.app.Fragment;
+import androidx.fragment.app.FragmentTransaction;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -26,6 +28,10 @@ public class MainActivity extends AppCompatActivity {
     private FloatingActionButton addButton;
     private BottomNavigationView bottomNav;
 
+    private HomeFragment hf;
+    private MoodFragment mf;
+    private AccFragment af;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +43,11 @@ public class MainActivity extends AppCompatActivity {
         mainToolbar = (androidx.appcompat.widget.Toolbar) findViewById(R.id.myTool);
         bottomNav = findViewById(R.id.mainBtmNav);
 
+        //Fragment Initialization
+        hf = new HomeFragment();
+        mf = new MoodFragment();
+        af = new AccFragment();
+
 
         setSupportActionBar(mainToolbar);
         getSupportActionBar().setTitle("SERO");
@@ -46,6 +57,28 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View v) {
              Intent postIntent = new Intent(MainActivity.this, NewPost.class);
              startActivity(postIntent);
+            }
+        });
+
+        bottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+            @Override
+            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                switch (item.getItemId()){
+
+                    case R.id.btmNavHome:
+                        replaceFrag(hf);
+                        return true;
+                    case R.id.btmNavMood:
+                        replaceFrag(mf);
+                        return true;
+                    case R.id.btmNavAcc:
+                        replaceFrag(af);
+                        return true;
+
+                }
+
+                return false;
             }
         });
 
@@ -113,4 +146,14 @@ public class MainActivity extends AppCompatActivity {
         startActivity(loginintent);
         finish();
     }
+
+    private void replaceFrag(Fragment fragment){
+
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.main_container, fragment);
+        ft.commit();
+
+
+    }
+
 }
