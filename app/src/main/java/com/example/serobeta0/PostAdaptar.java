@@ -6,7 +6,16 @@ import android.view.ViewGroup;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
+import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
+
+import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -33,8 +42,10 @@ public class PostAdaptar extends RecyclerView.Adapter<PostAdaptar.ViewHolder> {
 
         String desc_data = postList.get(position).getDesc();
         String ques_data = postList.get(position).getQues();
+        String uname = postList.get(position).getName();
         holder.setDescView(desc_data);
         holder.QuesView(ques_data);
+        holder.setNameView(uname);
 
     }
 
@@ -48,6 +59,9 @@ public class PostAdaptar extends RecyclerView.Adapter<PostAdaptar.ViewHolder> {
         private TextView desc;
         private TextView ques;
         private View mView;
+        private TextView name;
+        private FirebaseFirestore firestore;
+
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
@@ -64,5 +78,23 @@ public class PostAdaptar extends RecyclerView.Adapter<PostAdaptar.ViewHolder> {
             ques = mView.findViewById(R.id.postHead);
             ques.setText(quesText);
         }
+
+        public void setNameView(String uid){
+            name = mView.findViewById(R.id.postUsername);
+
+            firestore = FirebaseFirestore.getInstance();
+
+            DocumentReference docRef = firestore.collection("User").document(uid);
+            docRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {
+                @Override
+                public void onEvent(@Nullable DocumentSnapshot value, @Nullable FirebaseFirestoreException error) {
+                    name.setText(value.getString("name"));
+                }
+            });
+            
+
+
+        }
+
     }
 }

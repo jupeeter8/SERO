@@ -1,6 +1,7 @@
 package com.example.serobeta0;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -14,7 +15,10 @@ import com.google.android.gms.tasks.Task;
 import com.google.android.material.button.MaterialButton;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
+import com.google.firebase.firestore.DocumentSnapshot;
+import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
+import com.google.firebase.firestore.FirebaseFirestoreException;
 
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -62,10 +66,13 @@ public class NewPost extends AppCompatActivity {
             public void onClick(View v) {
                 String question = ques.getText().toString();
                 String description = desc.getText().toString();
+
+
                 if(!TextUtils.isEmpty(question) && !TextUtils.isEmpty(description))
                 {
-                    SimpleDateFormat sdf = new SimpleDateFormat("dd_MM_yyyy", Locale.getDefault());
-                    String currentDateandTime = sdf.format(new Date());
+                    submit.setClickable(false);
+                    //SimpleDateFormat sdf = new SimpleDateFormat("dd mm yy hh:mm A", Locale.getDefault());
+                    //String currentDateandTime = sdf.format(new Date());
                     Map<String, Object> postMap = new HashMap<>();
                     postMap.put("name", user_id);
                     postMap.put("ques", question);

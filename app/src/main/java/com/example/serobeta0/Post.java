@@ -10,7 +10,6 @@ public class Post {
         this.name = name;
         this.ques = ques;
         this.desc = desc;
-
     }
 
     public String getName() {
@@ -36,4 +35,5 @@ public class Post {
     public void setDesc(String desc) {
         this.desc = desc;
     }
+
 }
