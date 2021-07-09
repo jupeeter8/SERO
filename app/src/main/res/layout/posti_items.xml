@@ -3,11 +3,14 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginTop="8dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginStart="8dp">
 
     <androidx.cardview.widget.CardView
-        android:id="@+id/main blog post"
-        android:layout_width="0dp"
+        android:id="@+id/main_post"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -22,9 +25,10 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
-                android:orientation="horizontal"
-                android:paddingBottom="8dp">
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="16dp"
+                android:orientation="horizontal">
 
                 <TextView
                     android:id="@+id/postUsername"
@@ -32,7 +36,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingRight="8dp"
-
                     android:text="Name" />
 
                 <TextView
@@ -42,7 +45,6 @@
                     android:layout_marginEnd="20dp"
                     android:layout_weight="1"
                     android:gravity="end"
-
                     android:text="Date" />
 
             </LinearLayout>
@@ -50,22 +52,25 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_margin="16dp"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="16dp"
                 android:orientation="vertical">
 
                 <TextView
                     android:id="@+id/postHead"
                     style="@style/TextAppearance.MaterialComponents.Headline5"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:paddingBottom="8dp"
+                    android:paddingBottom="10dp"
                     android:text="Heading" />
 
                 <TextView
                     android:id="@+id/postDesc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Lorem Ipsum Dolor sit Lorem Ipsum dolor sit" />
+                    android:text="Lorem Ipsum Dolor sit Lorem Ipsum dolor sit"
+                    android:paddingBottom="10dp"/>
             </LinearLayout>
         </LinearLayout>
 
