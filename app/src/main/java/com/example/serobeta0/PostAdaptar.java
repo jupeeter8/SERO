@@ -1,10 +1,13 @@
 package com.example.serobeta0;
 
+import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -23,6 +26,8 @@ import java.util.List;
 public class PostAdaptar extends RecyclerView.Adapter<PostAdaptar.ViewHolder> {
 
     public List<Post> postList;
+    public Context context;
+    public FirebaseFirestore firestore;
 
     public PostAdaptar(List<Post> postList) {
         this.postList = postList;
@@ -34,6 +39,8 @@ public class PostAdaptar extends RecyclerView.Adapter<PostAdaptar.ViewHolder> {
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
 
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.posti_items, parent, false);
+        context = parent.getContext();
+        firestore = FirebaseFirestore.getInstance();
 
         return new ViewHolder(view);
     }
@@ -41,7 +48,7 @@ public class PostAdaptar extends RecyclerView.Adapter<PostAdaptar.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull PostAdaptar.ViewHolder holder, int position) {
 
-        String postID = postList.get(position).PostID;
+        String postID = postList.get(position).getId();
 
         String desc_data = postList.get(position).getDesc();
         String ques_data = postList.get(position).getQues();
@@ -51,6 +58,16 @@ public class PostAdaptar extends RecyclerView.Adapter<PostAdaptar.ViewHolder> {
         holder.QuesView(ques_data);
         holder.setNameView(uname);
         holder.setTimeView(timestamp);
+        holder.cmntBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent comment = new Intent(context, PostComments.class);
+                comment.putExtra("docId", postID);
+                context.startActivity(comment);
+            }
+        });
+
 
     }
 
@@ -66,15 +83,16 @@ public class PostAdaptar extends RecyclerView.Adapter<PostAdaptar.ViewHolder> {
         private View mView;
         private TextView name;
         private TextView timetext;
-        private FirebaseFirestore firestore;
-        private ImageView blogCmntBtn;
+        private ImageView cmntBtn;
 
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             mView = itemView;
-            blogCmntBtn = mView.findViewById(R.id.postComment);
+
+            cmntBtn = mView.findViewById(R.id.postComment);
+
         }
 
         public void setDescView(String text){
@@ -90,7 +108,6 @@ public class PostAdaptar extends RecyclerView.Adapter<PostAdaptar.ViewHolder> {
         public void setNameView(String uid){
             name = mView.findViewById(R.id.postUsername);
 
-            firestore = FirebaseFirestore.getInstance();
 
             DocumentReference docRef = firestore.collection("User").document(uid);
             docRef.addSnapshotListener(new EventListener<DocumentSnapshot>() {

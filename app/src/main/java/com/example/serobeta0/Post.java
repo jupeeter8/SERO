@@ -2,10 +2,23 @@ package com.example.serobeta0;
 
 import java.util.Date;
 
-public class Post extends PostID {
+public class Post {
 
     public String name, ques, desc;
     public String timestamp;
+    public String id;
+
+    public String getId() {
+        return id;
+    }
+
+    public void setId(String id) {
+        this.id = id;
+    }
+
+    public Post(String id) {
+        this.id = id;
+    }
 
     public Post() {}
 
@@ -47,5 +60,7 @@ public class Post extends PostID {
     public void setTime(String timestamp) {
         timestamp = timestamp;
     }
+
+
 
 }
