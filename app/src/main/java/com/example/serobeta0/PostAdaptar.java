@@ -3,6 +3,7 @@ package com.example.serobeta0;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -40,6 +41,8 @@ public class PostAdaptar extends RecyclerView.Adapter<PostAdaptar.ViewHolder> {
     @Override
     public void onBindViewHolder(@NonNull PostAdaptar.ViewHolder holder, int position) {
 
+        String postID = postList.get(position).PostID;
+
         String desc_data = postList.get(position).getDesc();
         String ques_data = postList.get(position).getQues();
         String uname = postList.get(position).getName();
@@ -64,12 +67,14 @@ public class PostAdaptar extends RecyclerView.Adapter<PostAdaptar.ViewHolder> {
         private TextView name;
         private TextView timetext;
         private FirebaseFirestore firestore;
+        private ImageView blogCmntBtn;
 
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
             mView = itemView;
+            blogCmntBtn = mView.findViewById(R.id.postComment);
         }
 
         public void setDescView(String text){

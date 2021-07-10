@@ -67,6 +67,8 @@ public class HomeFragment extends Fragment {
                     for (DocumentChange doc : value.getDocumentChanges()) {
                         if (doc.getType() == DocumentChange.Type.ADDED) {
 
+                            String postID = doc.getDocument().getId();
+                            Post POST_ID = doc.getDocument().toObject(PostID.class).withId(postID);
                             Post post = doc.getDocument().toObject(Post.class);
                             postList.add(post);
 

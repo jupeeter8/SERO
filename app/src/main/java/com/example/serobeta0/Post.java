@@ -2,7 +2,7 @@ package com.example.serobeta0;
 
 import java.util.Date;
 
-public class Post {
+public class Post extends PostID {
 
     public String name, ques, desc;
     public String timestamp;

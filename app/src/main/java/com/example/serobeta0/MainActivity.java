@@ -133,6 +133,11 @@ public class MainActivity extends AppCompatActivity {
 
                 return true;
 
+            case R.id.action_page_btn:
+                Intent test = new Intent(MainActivity.this, DepTest.class);
+                startActivity(test);
+                return true;
+
 
             default:
                 return false;
