@@ -11,10 +11,12 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentChange;
 import com.google.firebase.firestore.EventListener;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
+import com.google.firebase.firestore.Query;
 import com.google.firebase.firestore.QuerySnapshot;
 
 import java.util.ArrayList;
@@ -29,6 +31,7 @@ public class HomeFragment extends Fragment {
     private List<Post> postList;
     private FirebaseFirestore firestore;
     private PostAdaptar postAdaptar;
+    private FirebaseAuth mAuth;
 
     public HomeFragment() {
         // Required empty public constructor
@@ -48,24 +51,33 @@ public class HomeFragment extends Fragment {
         postAdaptar = new PostAdaptar(postList);
         post.setLayoutManager(new LinearLayoutManager(getActivity()));
         post.setAdapter(postAdaptar);
+        mAuth = FirebaseAuth.getInstance();
 
-        firestore.collection("Post").addSnapshotListener(new EventListener<QuerySnapshot>() {
-            @Override
-            public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
 
-                for(DocumentChange doc: value.getDocumentChanges()){
-                    if (doc.getType() == DocumentChange.Type.ADDED){
 
-                        Post post = doc.getDocument().toObject(Post.class);
-                        postList.add(post);
+        if(mAuth.getCurrentUser() != null) {
 
-                        postAdaptar.notifyDataSetChanged();
 
+            Query fq = firestore.collection("Post").orderBy("timestamp", Query.Direction.DESCENDING);
+
+            fq.addSnapshotListener(new EventListener<QuerySnapshot>() {
+                @Override
+                public void onEvent(@Nullable QuerySnapshot value, @Nullable FirebaseFirestoreException error) {
+
+                    for (DocumentChange doc : value.getDocumentChanges()) {
+                        if (doc.getType() == DocumentChange.Type.ADDED) {
+
+                            Post post = doc.getDocument().toObject(Post.class);
+                            postList.add(post);
+
+                            postAdaptar.notifyDataSetChanged();
+
+                        }
                     }
-                }
 
-            }
-        });
+                }
+            });
+        }
 
         // Inflate the layout for this fragment
         return view;

@@ -71,13 +71,13 @@ public class NewPost extends AppCompatActivity {
                 if(!TextUtils.isEmpty(question) && !TextUtils.isEmpty(description))
                 {
                     submit.setClickable(false);
-                    //SimpleDateFormat sdf = new SimpleDateFormat("dd mm yy hh:mm A", Locale.getDefault());
-                    //String currentDateandTime = sdf.format(new Date());
+                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy hh:mm a", Locale.getDefault());
+                    String currentDateandTime = sdf.format(new Date());
                     Map<String, Object> postMap = new HashMap<>();
                     postMap.put("name", user_id);
                     postMap.put("ques", question);
                     postMap.put("desc", description);
-                    //postMap.put("Time", currentDateandTime);
+                    postMap.put("timestamp", currentDateandTime);
 
                     firestore.collection("Post").add(postMap).addOnCompleteListener(new OnCompleteListener<DocumentReference>() {
                         @Override

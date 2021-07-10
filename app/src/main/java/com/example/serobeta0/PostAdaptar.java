@@ -43,9 +43,11 @@ public class PostAdaptar extends RecyclerView.Adapter<PostAdaptar.ViewHolder> {
         String desc_data = postList.get(position).getDesc();
         String ques_data = postList.get(position).getQues();
         String uname = postList.get(position).getName();
+        String timestamp = postList.get(position).getTime();
         holder.setDescView(desc_data);
         holder.QuesView(ques_data);
         holder.setNameView(uname);
+        holder.setTimeView(timestamp);
 
     }
 
@@ -60,6 +62,7 @@ public class PostAdaptar extends RecyclerView.Adapter<PostAdaptar.ViewHolder> {
         private TextView ques;
         private View mView;
         private TextView name;
+        private TextView timetext;
         private FirebaseFirestore firestore;
 
 
@@ -96,5 +99,11 @@ public class PostAdaptar extends RecyclerView.Adapter<PostAdaptar.ViewHolder> {
 
         }
 
+        public void setTimeView(String timestamp) {
+
+            timetext = mView.findViewById(R.id.postDate);
+            timetext.setText(timestamp);
+
+        }
     }
 }

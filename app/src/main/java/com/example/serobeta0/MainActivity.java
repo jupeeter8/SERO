@@ -44,43 +44,48 @@ public class MainActivity extends AppCompatActivity {
         bottomNav = findViewById(R.id.mainBtmNav);
 
         //Fragment Initialization
-        hf = new HomeFragment();
-        mf = new MoodFragment();
-        af = new AccFragment();
 
 
         setSupportActionBar(mainToolbar);
         getSupportActionBar().setTitle("SERO");
 
-        addButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-             Intent postIntent = new Intent(MainActivity.this, NewPost.class);
-             startActivity(postIntent);
-            }
-        });
+        if(mAuth.getCurrentUser() != null ) {
+            hf = new HomeFragment();
+            mf = new MoodFragment();
+            af = new AccFragment();
+            replaceFrag(hf);
 
-        bottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
-            @Override
-            public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-
-                switch (item.getItemId()){
-
-                    case R.id.btmNavHome:
-                        replaceFrag(hf);
-                        return true;
-                    case R.id.btmNavMood:
-                        replaceFrag(mf);
-                        return true;
-                    case R.id.btmNavAcc:
-                        replaceFrag(af);
-                        return true;
-
+            addButton.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent postIntent = new Intent(MainActivity.this, NewPost.class);
+                    startActivity(postIntent);
                 }
+            });
 
-                return false;
-            }
-        });
+            bottomNav.setOnNavigationItemSelectedListener(new BottomNavigationView.OnNavigationItemSelectedListener() {
+                @Override
+                public boolean onNavigationItemSelected(@NonNull MenuItem item) {
+
+                    switch (item.getItemId()) {
+
+                        case R.id.btmNavHome:
+                            replaceFrag(hf);
+                            return true;
+                        case R.id.btmNavMood:
+                            replaceFrag(mf);
+                            return true;
+                        case R.id.btmNavAcc:
+                            replaceFrag(af);
+                            return true;
+
+                    }
+
+                    return false;
+                }
+            });
+
+        }
 
     }
 
