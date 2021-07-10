@@ -41,7 +41,8 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:paddingRight="8dp"
-                    android:text="Name" />
+                    android:text="Name"
+                    android:textSize="16sp" />
 
                 <TextView
                     android:id="@+id/postDate"
@@ -50,7 +51,8 @@
                     android:layout_marginEnd="20dp"
                     android:layout_weight="1"
                     android:gravity="end"
-                    android:text="Date" />
+                    android:text="Date"
+                    android:textSize="10sp" />
 
             </LinearLayout>
 
@@ -68,14 +70,16 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingBottom="10dp"
-                    android:text="Heading" />
+                    android:text="Heading"
+                    android:textSize="18sp" />
 
                 <TextView
                     android:id="@+id/postDesc"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:paddingBottom="10dp"
-                    android:text="Lorem Ipsum Dolor sit Lorem Ipsum dolor sit" />
+                    android:text="Lorem Ipsum Dolor sit Lorem Ipsum dolor sit"
+                    android:textSize="18sp" />
 
 
             </LinearLayout>

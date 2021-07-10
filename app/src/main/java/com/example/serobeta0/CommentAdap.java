@@ -38,9 +38,9 @@ public class CommentAdap extends RecyclerView.Adapter<CommentAdap.ViewHolder> {
 
         String cmntTextMessage = cmntModalList.get(position).getMessage();
         String userNameText = cmntModalList.get(position).getUser();
+        String cmntTime_Date = cmntModalList.get(position).getTimestamp();
         holder.setNAME(userNameText);
-
-
+        holder.setTIME(cmntTime_Date);
         holder.setCMNT(cmntTextMessage);
 
     }
@@ -54,6 +54,7 @@ public class CommentAdap extends RecyclerView.Adapter<CommentAdap.ViewHolder> {
         private View mView;
         private TextView message;
         private TextView cmntName;
+        private TextView cmntTimeDate;
 
         private FirebaseFirestore firestore;
 
@@ -81,6 +82,13 @@ public class CommentAdap extends RecyclerView.Adapter<CommentAdap.ViewHolder> {
                     cmntName.setText(value.getString("name"));
                 }
             });
+
+        }
+
+        public void setTIME(String cmntTime_date) {
+
+            cmntTimeDate = mView.findViewById(R.id.cmntDate);
+            cmntTimeDate.setText(cmntTime_date);
 
         }
     }

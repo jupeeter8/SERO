@@ -19,9 +19,12 @@ import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.FirebaseFirestoreException;
 import com.google.firebase.firestore.QuerySnapshot;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Locale;
 import java.util.Map;
 
 public class PostComments extends AppCompatActivity {
@@ -103,13 +106,16 @@ public class PostComments extends AppCompatActivity {
 
                 if (!comment.isEmpty()){
 
+                    SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yy hh:mm a", Locale.getDefault());
+                    String currentDateandTime = sdf.format(new Date());
+
                     Map<String, Object> cmntMap = new HashMap<>();
                     cmntMap.put("Message", comment);
                     cmntMap.put("User", currUser);
-                    cmntMap.put("timestamp", FieldValue.serverTimestamp());
+                    cmntMap.put("timestamp", currentDateandTime);
 
                     firestore.collection("Post/" + docId + "/Comments").add(cmntMap);
-                    finish();
+                    cmntBox.setText("");
 
                 }
 

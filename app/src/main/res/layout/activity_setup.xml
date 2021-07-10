@@ -72,11 +72,12 @@
         android:id="@+id/setupNameLayout"
         style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox.Dense"
         android:layout_width="0dp"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
         android:layout_marginStart="25dp"
         android:layout_marginTop="128dp"
         android:layout_marginEnd="65dp"
         android:hint="Name"
+        app:layout_constraintBottom_toBottomOf="@+id/setupPfp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/setupPfp"
@@ -85,7 +86,7 @@
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/setupName"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="match_parent" />
     </com.google.android.material.textfield.TextInputLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

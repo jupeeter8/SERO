@@ -5,11 +5,11 @@ import java.util.Date;
 public class cmntModal {
 
     private String Message, User;
-    private Date timestamp;
+    private String timestamp;
 
     public cmntModal() {}
 
-    public cmntModal(String message, String user, Date timestamp) {
+    public cmntModal(String message, String user, String timestamp) {
         Message = message;
         User = user;
         this.timestamp = timestamp;
@@ -31,11 +31,11 @@ public class cmntModal {
         User = user;
     }
 
-    public Date getTimestamp() {
+    public String getTimestamp() {
         return timestamp;
     }
 
-    public void setTimestamp(Date timestamp) {
+    public void setTimestamp(String timestamp) {
         this.timestamp = timestamp;
     }
 }
