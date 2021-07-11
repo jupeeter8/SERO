@@ -48,49 +48,23 @@ public class DepressionTestAdapter extends RecyclerView.Adapter<DepressionTestAd
         String op4 = depressionTestModals.get(position).getOp4();
 
         holder.setDATA(head, ques, op1, op2, op3, op4);
-        holder.clear.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                int point = holder.group.getCheckedRadioButtonId();
-                switch (point){
-                    case R.id.option1:
-                        SCORE -= 1;
-                        break;
-                    case R.id.option2:
-                        SCORE -= 2;
-                        break;
-                    case R.id.option3:
-                        SCORE -= 3;
-                        break;
-                    case R.id.option4:
-                        SCORE -= 4;
-                        break;
-
-                }
-                Toast.makeText(context, "" + SCORE, Toast.LENGTH_SHORT).show();
-                holder.group.clearCheck();
-                holder.submit.setEnabled(true);
-                holder.clear.setEnabled(false);
-            }
-        });
 
         holder.submit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                int point = holder.group.getCheckedRadioButtonId();
-
-                switch (point){
+                int points = holder.group.getCheckedRadioButtonId();
+                switch (points){
                     case R.id.option1:
-                        SCORE += 1;
+                        SCORE += 0;
                         break;
                     case R.id.option2:
-                        SCORE += 2;
+                        SCORE += 1;
                         break;
                     case R.id.option3:
-                        SCORE += 3;
+                        SCORE += 2;
                         break;
                     case R.id.option4:
-                        SCORE += 4;
+                        SCORE += 3;
                         break;
                 }
 
@@ -99,6 +73,17 @@ public class DepressionTestAdapter extends RecyclerView.Adapter<DepressionTestAd
                 holder.clear.setEnabled(true);
             }
         });
+
+        holder.clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                holder.group.clearCheck();
+                Toast.makeText(context, "" + SCORE, Toast.LENGTH_SHORT).show();
+                holder.clear.setEnabled(false);
+                holder.submit.setEnabled(true);
+            }
+        });
+
 
     }
 
@@ -112,15 +97,15 @@ public class DepressionTestAdapter extends RecyclerView.Adapter<DepressionTestAd
         private TextView Head;
         private TextView Ques;
         private RadioButton Op1, Op2, Op3, Op4;
-        private Button clear, submit;
         private RadioGroup group;
+        private Button clear, submit;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
 
-            clear = itemView.findViewById(R.id.depTestLayoutClear);
-            submit = itemView.findViewById(R.id.depTestLayoutSubmit);
             group = itemView.findViewById(R.id.depressionTestRadioGroup);
+            clear = itemView.findViewById(R.id.depressionTestClear);
+            submit = itemView.findViewById(R.id.depressionTestSubmit);
             Head = itemView.findViewById(R.id.depTestLayoutHead);
             Ques = itemView.findViewById(R.id.depTestLayoutQuestion);
             Op1 = itemView.findViewById(R.id.option1);
