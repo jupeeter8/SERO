@@ -29,7 +29,6 @@ public class MainActivity extends AppCompatActivity {
     private BottomNavigationView bottomNav;
 
     private HomeFragment hf;
-    private MoodFragment mf;
     private AccFragment af;
 
     @Override
@@ -51,7 +50,6 @@ public class MainActivity extends AppCompatActivity {
 
         if(mAuth.getCurrentUser() != null ) {
             hf = new HomeFragment();
-            mf = new MoodFragment();
             af = new AccFragment();
             replaceFrag(hf);
 
@@ -71,9 +69,6 @@ public class MainActivity extends AppCompatActivity {
 
                         case R.id.btmNavHome:
                             replaceFrag(hf);
-                            return true;
-                        case R.id.btmNavMood:
-                            replaceFrag(mf);
                             return true;
                         case R.id.btmNavAcc:
                             replaceFrag(af);
@@ -120,18 +115,6 @@ public class MainActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
 
         switch (item.getItemId()){
-
-            case R.id.logoutBtn:
-                
-                Logout();
-                
-                return true;
-            case R.id.settingsBtn:
-
-                Intent setup  = new Intent(MainActivity.this, Setup.class);
-                startActivity(setup);
-
-                return true;
 
             case R.id.action_page_btn:
                 Intent test = new Intent(MainActivity.this, DepressionTestActivity.class);

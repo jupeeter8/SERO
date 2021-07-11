@@ -14,7 +14,7 @@
         android:layout_marginTop="60dp"
         android:layout_marginEnd="96dp"
         android:fontFamily="@font/comfortaa_bold"
-        android:text="How do you feeel\ntoday"
+        android:text="How do you feel\ntoday"
         android:textColor="?attr/colorSecondaryVariant"
         android:textSize="30sp"
         app:layout_constraintEnd_toEndOf="parent"
@@ -65,9 +65,11 @@
         android:id="@+id/moodAwful"
         android:layout_width="50dp"
         android:layout_height="50dp"
+        android:layout_marginStart="18dp"
         android:layout_marginTop="310dp"
         android:layout_marginEnd="46dp"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/moodSad"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/awful" />
 

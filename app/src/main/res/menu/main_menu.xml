@@ -3,17 +3,13 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
+        android:id="@+id/mainMoodBtn"
+        android:icon="@drawable/ic_mood"
+        android:title="Mood Tracker"
+        app:showAsAction="always" />
+    <item
         android:id="@+id/action_page_btn"
         android:icon="@drawable/ic_baseline_assignment_24"
         android:title="@string/action_search"
         app:showAsAction="always" />
-    <item
-        android:id="@+id/mainMoodBtn"
-        android:title="Mood Tracker" />
-    <item
-        android:id="@+id/settingsBtn"
-        android:title="@string/action_settings" />
-    <item
-        android:id="@+id/logoutBtn"
-        android:title="@string/action_logout" />
 </menu>

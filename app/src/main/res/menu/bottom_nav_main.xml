@@ -7,10 +7,6 @@
         android:icon="@drawable/ic_home"
         android:title="Home" />
     <item
-        android:id="@+id/btmNavMood"
-        android:icon="@drawable/ic_mood"
-        android:title="Mood Tracker" />
-    <item
         android:id="@+id/btmNavAcc"
         android:icon="@drawable/ic_person"
         android:title="Account" />
