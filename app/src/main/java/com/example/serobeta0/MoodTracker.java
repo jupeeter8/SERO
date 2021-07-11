@@ -64,6 +64,7 @@ public class MoodTracker extends AppCompatActivity {
 
                 Map<String, Object>MoodMap = new HashMap<>();
                 MoodMap.put("val", 0);
+                MoodMap.put("mood", "Rad");
 
                 firestore.collection("Mood").document(currentDateandTime).collection(currentUser).document(currentDateandTime).set(MoodMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
@@ -87,6 +88,7 @@ public class MoodTracker extends AppCompatActivity {
 
                 Map<String, Object>MoodMap = new HashMap<>();
                 MoodMap.put("val", 1);
+                MoodMap.put("mood", "Happy");
 
                 firestore.collection("Mood").document(currentDateandTime).collection(currentUser).document(currentDateandTime).set(MoodMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
@@ -109,6 +111,7 @@ public class MoodTracker extends AppCompatActivity {
 
                 Map<String, Object>MoodMap = new HashMap<>();
                 MoodMap.put("val", 2);
+                MoodMap.put("mood", "Meh");
 
                 firestore.collection("Mood").document(currentDateandTime).collection(currentUser).document(currentDateandTime).set(MoodMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
@@ -132,6 +135,7 @@ public class MoodTracker extends AppCompatActivity {
 
                 Map<String, Object>MoodMap = new HashMap<>();
                 MoodMap.put("val", 3);
+                MoodMap.put("mood", "Sad");
 
                 firestore.collection("Mood").document(currentDateandTime).collection(currentUser).document(currentDateandTime).set(MoodMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
@@ -154,6 +158,7 @@ public class MoodTracker extends AppCompatActivity {
 
                 Map<String, Object>MoodMap = new HashMap<>();
                 MoodMap.put("val", 4);
+                MoodMap.put("mood", "Awful");
 
                 firestore.collection("Mood").document(currentDateandTime).collection(currentUser).document(currentDateandTime).set(MoodMap).addOnCompleteListener(new OnCompleteListener<Void>() {
                     @Override
