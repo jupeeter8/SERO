@@ -44,8 +44,6 @@ public class PostComments extends AppCompatActivity {
     private CommentAdap commentAdap;
 
 
-
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -87,7 +85,6 @@ public class PostComments extends AppCompatActivity {
                             cmntModalList.add(pc);
 
                             commentAdap.notifyDataSetChanged();
-
 
 
                         }

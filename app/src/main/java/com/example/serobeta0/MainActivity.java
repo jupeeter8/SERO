@@ -138,6 +138,10 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(test);
                 return true;
 
+            case R.id.mainMoodBtn:
+                Intent moodIntent = new Intent(MainActivity.this, MoodTracker.class);
+                startActivity(moodIntent);
+                return true;
 
             default:
                 return false;

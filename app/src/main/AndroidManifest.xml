@@ -13,7 +13,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Serobeta0">
-        <activity android:name=".DepressionTestActivity"></activity>
+        <activity android:name=".MoodTracker"></activity>
+        <activity android:name=".DepressionTestActivity" />
         <activity android:name=".PostComments" />
         <activity android:name=".NewPost" />
         <activity android:name=".Setup" />

@@ -8,6 +8,9 @@
         android:title="@string/action_search"
         app:showAsAction="always" />
     <item
+        android:id="@+id/mainMoodBtn"
+        android:title="Mood Tracker" />
+    <item
         android:id="@+id/settingsBtn"
         android:title="@string/action_settings" />
     <item

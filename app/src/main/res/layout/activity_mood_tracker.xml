@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MoodTracker">
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginEnd="96dp"
+        android:fontFamily="@font/comfortaa_bold"
+        android:text="How do you feeel\ntoday"
+        android:textColor="?attr/colorSecondaryVariant"
+        android:textSize="30sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/moodHappy"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="19dp"
+        android:layout_marginTop="169dp"
+        app:layout_constraintStart_toEndOf="@+id/moodRad"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:srcCompat="@drawable/smile" />
+
+    <ImageView
+        android:id="@+id/moodRad"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="39dp"
+        android:layout_marginTop="169dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:srcCompat="@drawable/rad" />
+
+    <ImageView
+        android:id="@+id/moodMeh"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginTop="169dp"
+        app:layout_constraintStart_toEndOf="@+id/moodHappy"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:srcCompat="@drawable/meh" />
+
+    <ImageView
+        android:id="@+id/moodSad"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="17dp"
+        android:layout_marginTop="169dp"
+        app:layout_constraintStart_toEndOf="@+id/moodMeh"
+        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:srcCompat="@drawable/sad" />
+
+    <ImageView
+        android:id="@+id/moodAwful"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="310dp"
+        android:layout_marginEnd="46dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/awful" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
